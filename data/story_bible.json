@@ -1,0 +1,12 @@
+{
+  "protagonist": {
+    "name": "David Vance",
+    "occupation": "Investigative Journalist",
+    "location": "Blackwood Bay"
+  },
+  "tone_rules": [
+    "Restrained, moody prose leaning into eerie surrealism.",
+    "Real-world events manifest purely as strange weather, radio static, or town omens.",
+    "Keep scenes grounded in concrete investigative details."
+  ]
+}
