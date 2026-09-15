@@ -2,3 +2,4 @@ google-genai
 feedparser
 yfinance
 open-meteo
+markdown
