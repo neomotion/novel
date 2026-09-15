@@ -1,0 +1,4 @@
+google-genai
+feedparser
+yfinance
+open-meteo
