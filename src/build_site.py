@@ -1,22 +1,74 @@
+"""Build the static manuscript site into dist/.
+
+index.html          one block per week, toggling between its chapter and its ciphers
+<week>.html         the assembled chapter (e.g. 2026-W45.html)
+entry-<date>.html   one day's scene with its real-world cipher
+"""
 import os
+import re
 import glob
 import json
+import html
+from collections import defaultdict
+from datetime import date
+
 import markdown
 
 DIST_DIR = "dist"
 os.makedirs(DIST_DIR, exist_ok=True)
 
-# 1. Load real-world event mappings
+
+def week_id(d):
+    year, week, _ = d.isocalendar()
+    return f"{year}-W{week:02d}"
+
+
+def week_range(wid):
+    year, week = int(wid[:4]), int(wid[6:])
+    start = date.fromisocalendar(year, week, 1)
+    end = date.fromisocalendar(year, week, 7)
+    return f"{start:%b} {start.day} – {end:%b} {end.day}"
+
+
+def short_date(iso):
+    d = date.fromisoformat(iso)
+    return f"{d:%b} {d.day}"
+
+
+def teaser(text, words=9):
+    parts = re.sub(r"\s+", " ", text).strip().split(" ")
+    return " ".join(parts[:words]).rstrip(",;:.") + ("…" if len(parts) > words else "")
+
+
+# 1. Load data
 events_map = {}
 if os.path.exists("data/events_log.json"):
     try:
         with open("data/events_log.json", "r") as f:
-            events_data = json.load(f)
-            events_map = {item.get("date"): item.get("seed_mapping") for item in events_data if "date" in item}
+            events_map = {e.get("date"): e.get("seed_mapping") for e in json.load(f) if "date" in e}
     except Exception:
         events_map = {}
 
-# 2. Minimalist Manuscript CSS
+days_by_week = defaultdict(list)
+for path in sorted(glob.glob("fragments/*.json")):
+    with open(path, "r", encoding="utf-8") as f:
+        frag = json.load(f)
+    days_by_week[week_id(date.fromisoformat(frag["date"]))].append(frag)
+
+chapters = {}
+for path in glob.glob("chapters/*.md"):
+    wid = os.path.basename(path)[:-3]
+    with open(path, "r", encoding="utf-8") as f:
+        md_text = f.read()
+    heading = re.search(r"^#+\s*(.+)$", md_text, re.M)
+    title = heading.group(1).strip().strip("*") if heading else f"Week {int(wid[6:])}"
+    body = re.sub(r"^#+\s*.+\n", "", md_text, count=1) if heading else md_text
+    first_para = next((p for p in body.split("\n\n") if p.strip() and not p.lstrip().startswith(("#", "---", "***"))), "")
+    chapters[wid] = {"title": title, "html": markdown.markdown(md_text), "excerpt": teaser(re.sub(r"[*_`>#]", "", first_para), 40)}
+
+weeks = sorted(set(days_by_week) | set(chapters), reverse=True)
+
+# 2. Styles: the original typewriter look, plus the week toggle and cipher pages
 CSS_STYLES = """
 * { box-sizing: border-box; }
 body {
@@ -25,11 +77,9 @@ body {
     font-family: "Courier New", Courier, monospace, serif;
     font-size: 16px;
     line-height: 1.85;
-    margin: 0;
+    margin: 0 auto;
     padding: 2.5rem 1.25rem 5rem 1.25rem;
     max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
     word-wrap: break-word;
 }
 h1, h2, h3 {
@@ -41,150 +91,138 @@ h1, h2, h3 {
     border-bottom: 1px solid #111;
     padding-bottom: 0.5rem;
 }
-p {
-    margin-bottom: 1.5rem;
-    text-indent: 1.5rem;
+p { margin-bottom: 1.5rem; text-indent: 1.5rem; }
+p:first-of-type { text-indent: 0; }
+hr { border: none; border-top: 1px dashed #ccc; margin: 3rem 0; }
+a { color: #111; text-decoration: underline; }
+a:hover { background-color: #111; color: #fff; text-decoration: none; }
+.meta { color: #777; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.nav-bar { margin-bottom: 3rem; font-size: 0.85rem; display: flex; justify-content: space-between; gap: 1rem; }
+.week { border-top: 1px solid #111; padding: 1.25rem 0 0.5rem; margin-top: 1.5rem; }
+.week-head { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+.week-title { font-weight: bold; text-transform: uppercase; letter-spacing: 0.04em; }
+.toggle { display: inline-flex; border: 1px solid #111; }
+.toggle button {
+    font: inherit; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    background: #fff; color: #111; border: 0; padding: 0.3rem 0.8rem; cursor: pointer;
 }
-p:first-of-type {
-    text-indent: 0;
-}
-hr {
-    border: none;
-    border-top: 1px dashed #ccc;
-    margin: 3rem 0;
-}
-a {
-    color: #111;
-    text-decoration: underline;
-}
-a:hover {
-    background-color: #111;
-    color: #fff;
-    text-decoration: none;
-}
-.omen-section {
-    margin-top: 3.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eaeaea;
-    font-size: 0.85rem;
-    color: #777;
-}
-details summary {
-    cursor: pointer;
-    user-select: none;
-    outline: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #999;
-}
-details summary:hover {
-    color: #111;
-}
+.toggle button + button { border-left: 1px solid #111; }
+.toggle button[aria-pressed="true"] { background: #111; color: #fff; }
+.panel { margin-top: 1rem; }
+.panel[hidden] { display: none; }
+.panel p { text-indent: 0; }
+.cipher-list { list-style: none; padding: 0; margin: 0; }
+.cipher-list a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0.25rem; border-bottom: 1px dashed #ccc; text-decoration: none; }
+.cipher-list .date { color: #777; margin-right: 0.75rem; white-space: nowrap; }
+.cipher-list a:hover .date { color: #ccc; }
+.omen-label { margin-top: 3rem; }
 .omen-content {
-    margin-top: 0.75rem;
-    padding: 0.75rem 1rem;
-    background-color: #f9f9f9;
-    border-left: 2px solid #333;
-    color: #333;
+    margin-top: 0.5rem; padding: 0.75rem 1rem; background-color: #f9f9f9;
+    border-left: 2px solid #333; color: #333; font-size: 0.9rem;
 }
-.nav-bar {
-    margin-bottom: 3rem;
-    font-size: 0.85rem;
-    display: flex;
-    justify-content: space-between;
-}
+.pager { display: flex; justify-content: space-between; margin-top: 2.5rem; font-size: 0.85rem; }
+.empty { color: #777; }
 """
 
-def generate_html_page(title, body_content, omens_list=None, back_link=False):
-    nav = f'<div class="nav-bar"><a href="index.html">← INDEX</a> <span>MANUSCRIPT ARCHIVE</span></div>' if back_link else ''
-    
-    omen_html = ""
-    if omens_list:
-        items = "".join([f"<li><strong>{date}:</strong> {desc}</li>" for date, desc in omens_list])
-        omen_html = f"""
-        <div class="omen-section">
-            <details>
-                <summary>?? REVEAL REALITY CIPHER</summary>
-                <div class="omen-content">
-                    <ul style="padding-left: 1.2rem; margin: 0;">{items}</ul>
-                </div>
-            </details>
-        </div>
-        """
+# Tiny script: switch a week between Chapter and Ciphers. A link to
+# index.html#2026-W45-ciphers opens that week on its ciphers.
+TOGGLE_JS = """
+function show(wid, mode) {
+  var w = document.getElementById(wid); if (!w) return;
+  w.querySelectorAll('[data-mode]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.mode === mode); });
+  w.querySelectorAll('.panel').forEach(function (p) { p.hidden = p.dataset.panel !== mode; });
+}
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('[data-mode]'); if (b) show(b.closest('.week').id, b.dataset.mode);
+});
+function fromHash() {
+  var m = location.hash.match(/^#(\\d{4}-W\\d{2})-ciphers$/);
+  if (m) { show(m[1], 'ciphers'); document.getElementById(m[1]).scrollIntoView(); }
+}
+window.addEventListener('hashchange', fromHash); fromHash();
+"""
 
+
+def page(title, body, script=""):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
+    <title>{html.escape(title)}</title>
     <style>{CSS_STYLES}</style>
 </head>
 <body>
-    {nav}
-    {body_content}
-    {omen_html}
+{body}
+{f"<script>{script}</script>" if script else ""}
 </body>
 </html>"""
 
-# 3. Build Chapter Pages
-chapter_files = sorted(glob.glob("chapters/*.md"), reverse=True)
-chapter_links = []
 
-for filepath in chapter_files:
-    filename = os.path.basename(filepath)
-    slug = filename.replace(".md", "")
-    with open(filepath, "r", encoding="utf-8") as f:
-        md_text = f.read()
-    
-    html_body = markdown.markdown(md_text)
-    
-    # Collect matching omens
-    relevant_omens = [(d, m) for d, m in events_map.items()]
-    
-    page_html = generate_html_page(title=slug, body_content=html_body, omens_list=relevant_omens, back_link=True)
-    with open(os.path.join(DIST_DIR, f"{slug}.html"), "w", encoding="utf-8") as out:
-        out.write(page_html)
-    
-    chapter_links.append(f'<li><a href="{slug}.html">{slug.upper()}</a></li>')
+def write(name, content):
+    with open(os.path.join(DIST_DIR, name), "w", encoding="utf-8") as out:
+        out.write(content)
 
-# 4. Build Latest Daily Fragments Section
-fragment_files = sorted(glob.glob("fragments/*.json"), reverse=True)
-fragment_entries = []
 
-for filepath in fragment_files[:6]: # Show current week unedited fragments
-    with open(filepath, "r", encoding="utf-8") as f:
-        frag_data = json.load(f)
-    f_date = frag_data.get("date", "")
-    f_text = frag_data.get("text", "")
-    f_omen = events_map.get(f_date, "Unknown signal")
-    
-    fragment_entries.append(f"""
-    <div style="margin-bottom: 2rem;">
-        <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem;">ENTRY: {f_date}</h3>
-        <p>{f_text}</p>
-        <details>
-            <summary>?? CIPHER</summary>
-            <div class="omen-content">{f_omen}</div>
-        </details>
-    </div>
-    """)
+# 3. Chapter pages
+for wid, ch in chapters.items():
+    ciphers_link = f'<p><a href="index.html#{wid}-ciphers">See this week’s ciphers →</a></p>' if days_by_week.get(wid) else ""
+    body = f"""<div class="nav-bar"><a href="index.html">← INDEX</a> <span>WEEK {int(wid[6:])} · {week_range(wid).upper()}</span></div>
+{ch["html"]}
+<hr>
+{ciphers_link}"""
+    write(f"{wid}.html", page(ch["title"], body))
 
-# 5. Build Home Index (`index.html`)
-index_body = f"""
-<h1>THE MANUSCRIPT</h1>
-<p style="color: #666; font-size: 0.85rem;">INVESTIGATION LOGS // PARALLEL RECEPTION</p>
+# 4. Cipher (daily entry) pages, with prev/next inside the week
+for wid, days in days_by_week.items():
+    for i, frag in enumerate(days):
+        d = frag["date"]
+        prev_link = f'<a href="entry-{days[i-1]["date"]}.html">← {short_date(days[i-1]["date"]).upper()}</a>' if i > 0 else "<span></span>"
+        next_link = f'<a href="entry-{days[i+1]["date"]}.html">{short_date(days[i+1]["date"]).upper()} →</a>' if i < len(days) - 1 else "<span></span>"
+        body = f"""<div class="nav-bar"><a href="index.html#{wid}-ciphers">← WEEK {int(wid[6:])} CIPHERS</a> <span>ENTRY · {short_date(d).upper()}</span></div>
+<h2>{date.fromisoformat(d):%A}, {short_date(d)}</h2>
+{markdown.markdown(frag["text"])}
+<div class="meta omen-label">Reality cipher</div>
+<div class="omen-content">{html.escape(events_map.get(d) or "Unknown signal")}</div>
+<div class="pager">{prev_link}{next_link}</div>"""
+        write(f"entry-{d}.html", page(f"Entry {d}", body))
 
-<h2>CURRENT WEEK (UNASSEMBLED FRAGMENTS)</h2>
-{"".join(fragment_entries) if fragment_entries else "<p>No active fragments recorded yet this week.</p>"}
+# 5. Index: one block per week, newest first
+blocks = []
+for wid in weeks:
+    ch, days = chapters.get(wid), days_by_week.get(wid, [])
+    start_mode = "chapter" if ch else "ciphers"
+    title = ch["title"] if ch else "Chapter in progress"
 
-<h2>ASSEMBLED CHAPTERS</h2>
-{"<ul>" + "".join(chapter_links) + "</ul>" if chapter_links else "<p>No chapters assembled yet.</p>"}
-"""
+    if ch:
+        chapter_panel = f'<p>{html.escape(ch["excerpt"])}</p><a href="{wid}.html">Read chapter →</a>'
+    else:
+        chapter_panel = '<p class="empty">This week’s chapter is assembled on Sunday. Until then, read the ciphers.</p>'
 
-index_html = generate_html_page("The Manuscript", index_body, back_link=False)
-with open(os.path.join(DIST_DIR, "index.html"), "w", encoding="utf-8") as out:
-    out.write(index_html)
+    if days:
+        items = "".join(
+            f'<li><a href="entry-{f["date"]}.html"><span><span class="date">{short_date(f["date"]).upper()}</span>{html.escape(teaser(f["text"]))}</span><span>→</span></a></li>'
+            for f in days
+        )
+        ciphers_panel = f'<ul class="cipher-list">{items}</ul>'
+    else:
+        ciphers_panel = '<p class="empty">No ciphers recorded for this week.</p>'
 
-print("Site built successfully in /dist")
+    def btn(mode, label):
+        return f'<button type="button" data-mode="{mode}" aria-pressed="{str(mode == start_mode).lower()}">{label}</button>'
+
+    blocks.append(f"""<section class="week" id="{wid}">
+  <div class="week-head">
+    <div><div class="meta">Week {int(wid[6:])} · {week_range(wid)}</div><div class="week-title">{html.escape(title)}</div></div>
+    <div class="toggle">{btn("chapter", "Chapter")}{btn("ciphers", f"Ciphers ({len(days)})")}</div>
+  </div>
+  <div class="panel" data-panel="chapter"{"" if start_mode == "chapter" else " hidden"}>{chapter_panel}</div>
+  <div class="panel" data-panel="ciphers"{"" if start_mode == "ciphers" else " hidden"}>{ciphers_panel}</div>
+</section>""")
+
+index_body = f"""<h1>THE MANUSCRIPT</h1>
+<p class="meta">Investigation logs // parallel reception</p>
+{"".join(blocks) if blocks else '<p class="empty">No entries recorded yet.</p>'}"""
+
+write("index.html", page("The Manuscript", index_body, TOGGLE_JS))
+print(f"Site built in /{DIST_DIR}: {len(weeks)} weeks, {len(chapters)} chapters")
