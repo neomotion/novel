@@ -115,8 +115,6 @@ a:hover { background-color: #111; color: #fff; text-decoration: none; }
 .panel p { text-indent: 0; }
 .cipher-list { list-style: none; padding: 0; margin: 0; }
 .cipher-list a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0.25rem; border-bottom: 1px dashed #ccc; text-decoration: none; }
-.cipher-list .date { color: #777; margin-right: 0.75rem; white-space: nowrap; }
-.cipher-list a:hover .date { color: #ccc; }
 .omen-label { margin-top: 3rem; }
 .omen-content {
     margin-top: 0.5rem; padding: 0.75rem 1rem; background-color: #f9f9f9;
@@ -179,15 +177,16 @@ for wid, ch in chapters.items():
 for wid, days in days_by_week.items():
     for i, frag in enumerate(days):
         d = frag["date"]
-        prev_link = f'<a href="entry-{days[i-1]["date"]}.html">← {short_date(days[i-1]["date"]).upper()}</a>' if i > 0 else "<span></span>"
-        next_link = f'<a href="entry-{days[i+1]["date"]}.html">{short_date(days[i+1]["date"]).upper()} →</a>' if i < len(days) - 1 else "<span></span>"
-        body = f"""<div class="nav-bar"><a href="index.html#{wid}-ciphers">← WEEK {week_no[wid]} CIPHERS</a> <span>ENTRY · {short_date(d).upper()}</span></div>
-<h2>{date.fromisoformat(d):%A}, {short_date(d)}</h2>
+        prev_link = f'<a href="entry-{days[i-1]["date"]}.html">← CIPHER {i}</a>' if i > 0 else "<span></span>"
+        next_link = f'<a href="entry-{days[i+1]["date"]}.html">CIPHER {i + 2} →</a>' if i < len(days) - 1 else "<span></span>"
+        body = f"""<div class="nav-bar"><a href="index.html#{wid}-ciphers">← WEEK {week_no[wid]} CIPHERS</a> <span>WEEK {week_no[wid]} · CIPHER {i + 1}</span></div>
+<h2>Cipher {i + 1}</h2>
+<div class="meta" style="margin-bottom: 1.5rem">Written {date.fromisoformat(d):%A}, {short_date(d)}</div>
 {markdown.markdown(frag["text"])}
 <div class="meta omen-label">Reality cipher</div>
 <div class="omen-content">{html.escape(events_map.get(d) or "Unknown signal")}</div>
 <div class="pager">{prev_link}{next_link}</div>"""
-        write(f"entry-{d}.html", page(f"Entry {d}", body))
+        write(f"entry-{d}.html", page(f"Week {week_no[wid]} · Cipher {i + 1}", body))
 
 # 5. Index: one block per week, newest first
 blocks = []
@@ -203,8 +202,8 @@ for wid in weeks:
 
     if days:
         items = "".join(
-            f'<li><a href="entry-{f["date"]}.html"><span><span class="date">{short_date(f["date"]).upper()}</span>{html.escape(teaser(f["text"]))}</span><span>→</span></a></li>'
-            for f in days
+            f'<li><a href="entry-{f["date"]}.html"><span>CIPHER {n}</span><span>→</span></a></li>'
+            for n, f in enumerate(days, 1)
         )
         ciphers_panel = f'<ul class="cipher-list">{items}</ul>'
     else:
