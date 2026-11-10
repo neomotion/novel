@@ -1,40 +1,37 @@
 {
   "open_mysteries": [
-    "What is the source and nature of the colossal, geometric structure, and how is it influencing Blackwood Bay?",
-    "What is causing the pervasive hum, escalating tremors, cracks, fungal growth, and the silent foghorn, and what does the whispered word 'Wake' signify for David Vance?",
-    "What is the source and meaning of the intelligent, viscous radio static, fragmented whispers, foreign language, and how does it block communication?",
-    "What happened to the missing fishing boats, their crews, Elara Thorne, Agnes Finch, the lighthouse keeper, the local councillor, and now Eleanor Vance?",
-    "What is the significance of the numerical patterns ('7.76', '7666', '7773', '7757') and their connection to the lighthouse acquisition and 'Devil's Throat'?",
-    "What is the connection between the scorched marks (lighthouse, Peterson cabin), the service tunnel, the lighthouse's role, the keeper's cottage, and the 'Devil's Throat' channel?",
-    "What is the nature of the iridescent slick, its industrial smell, and the pale, phosphorescent fungi now blooming across town?",
-    "Who are the human elements (Thorne family, shell corporation, evasive councilman) behind the 'lighthouse acquisition' and 'strange money', and how does David Vance's family connect to it (Eleanor Vance)?"
+    "Who is writing the manuscript pages David finds, and why do they describe events before they happen?",
+    "What is the source of the pervasive hum and the strange radio signals that afflict Blackwood Bay, and why are they escalating?",
+    "What is the 'Undertow,' and why does it take people, leaving them as shadowed, murmuring shapes?",
+    "What happened to David's sister, Iris, twenty years ago, and how does it connect to current events and the number seven?",
+    "What is the significance of the recurring number seven and related coordinates in Blackwood Bay's strange phenomena?",
+    "Why are boats disappearing from Blackwood Bay's waters, and what are 'lights on the water' and the 'song that pulled the tide'?",
+    "Why is the lighthouse light failing, and what was its true, original purpose in holding back the Undertow?",
+    "What is the 'gate' whispered about on the radio, and how does it relate to the structural instability and ancient fault lines beneath the town?"
   ],
   "characters": [
-    "David Vance: Investigative Journalist, protagonist investigating strange occurrences in Blackwood Bay, now personally connected through Eleanor Vance.",
-    "Agnes Finch: Diner owner in Blackwood Bay, noted for her pervasive fatigue and recent disappearance.",
-    "Chief Miller: Blackwood Bay Police Chief, evasive about the town's escalating issues, now uncommunicative.",
-    "Mrs. Gable: Blackwood Bay resident, whose barn displayed a mysterious number '7773'.",
-    "Elara Thorne: Recently missing person, whose diary entries hint at growing unease.",
-    "Unnamed Councilman: Missing for five years, involved in the 'lighthouse acquisition'.",
-    "Old Man Thorne: Last of the family that built Blackwood Bay, whose accounting books were manipulated.",
-    "Thorne's Estranged Nephew: Frequents the greasy spoon by the lighthouse, suspected of knowing more.",
-    "Lighthouse Keeper: Missing for five years, left a logbook detailing the 'acquisition'.",
-    "Lena: Quiet worker now running Agnes Finch's diner.",
-    "Eleanor Vance: Missing girl, possibly related to David Vance, whose photo was found with Peterson cabin evidence."
+    "David Vance: Investigative journalist and failed novelist, searching for answers in Blackwood Bay.",
+    "Iris Vance: David's younger sister, vanished at age seven twenty years ago.",
+    "Chief Miller: Blackwood Bay's police chief; knows more than he says, afraid rather than corrupt.",
+    "Elias Thorne: Patriarch of the family that built the town and the lighthouse; sold the lighthouse in a dubious deal.",
+    "Elara Thorne: Elias's granddaughter, recently taken; her diary tracks the dark's return.",
+    "Agnes Finch: Owner of the diner, now showing signs of being affected and drained by the encroaching dark.",
+    "Lena: Waitress turned diner manager, sharp and dry-humored, David's one reliable ally.",
+    "The lighthouse keeper: Vanished five years ago; his logbook explains what the light was really for."
   ],
   "clues_and_objects": [
-    "Submerged geometric structure: Massive object actively influencing Blackwood Bay.",
-    "Evolving intelligent static/whispers/foreign language: Disrupting communication, now viscous and hungry.",
-    "Pervasive hum/tremors/cracks: Deep vibrations causing physical effects, now ending in 'Wake', associated with a silent foghorn.",
-    "Missing persons notes: Fishermen, Elara Thorne, Agnes Finch, lighthouse keeper, local councillor, Eleanor Vance.",
-    "Numerical patterns: '7.76', '7666', '7773', '7757' appearing at key locations and in the lighthouse deed.",
-    "Scorched lighthouse foundation/service tunnel: Evidence of past attempts to contain or conceal.",
-    "Lighthouse keeper's cottage/logbook/key: Logbook details the 'acquisition' and 'Devil's Throat'.",
-    "Iridescent slick/phosphorescent fungi: Industrial-smelling film and pale, glowing fungi spreading.",
-    "'Devil's Throat' channel: Access secured via lighthouse acquisition, a new focus for David.",
-    "Thorne family accounting books: Manipulated ledgers hinting at financial foul play.",
-    "Lighthouse acquisition deed: Links missing councilman, shell corporation, '7773', and 'Devil's Throat'.",
-    "Peterson cabin: Site of a cold-case fire with precise scorch marks, a child's toy, and Eleanor Vance's photo."
+    "Manuscript pages: Typed pages in David's voice, describing future events, now mentioning 'gate'.",
+    "The pervasive hum: A low, guttural vibration from the bay and earth, now escalating.",
+    "Strange radio static: A chorus of fractured tones, whispers, and fragmented words like 'gate' and 'seven'.",
+    "7.76 nautical miles / the number seven: A precise coordinate and recurring number linked to the dark.",
+    "Flashlight: David's primary defense against the dark at night.",
+    "Lighthouse: Its failing light is crucial to holding back the Undertow.",
+    "Iris's wooden toy bird: A recurring object connected to David's missing sister.",
+    "Old typewriter: David's own machine, which he suspects might be creating the pages.",
+    "Waterproof notebook: Contains tide charts and David's investigation notes.",
+    "Elara Thorne's diary: Tracks the dark's return, likely hidden in the cannery.",
+    "Cannery blueprints: Reveal structural weaknesses or hidden aspects of the town.",
+    "'Serpent's Kiss' logbook: Mentions 'lights on the water' and a 'song that pulled the tide'."
   ],
-  "where_we_left_off": "David Vance, having uncovered the lighthouse acquisition deed and the 'Devil's Throat' channel, finds his attempts to communicate blocked by intelligent static. The town's foghorn falls silent as the pervasive hum intensifies. He discovers a link between the lighthouse and the Peterson cabin fire, and a photo of a missing girl named Eleanor Vance, sharing his surname, which personalizes the escalating mystery and drives him towards 'Devil's Throat'."
+  "where_we_left_off": "David Vance continues his investigation into the escalating phenomena of Blackwood Bay, uncovering new clues related to Elara Thorne and other disappearances, while grappling with the physical manifestations of the encroaching dark. The town's pervasive hum and strange radio broadcasts intensify, pushing him closer to a terrifying truth about a 'gate' that might be breaking beneath the town."
 }
