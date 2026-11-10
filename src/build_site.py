@@ -61,12 +61,14 @@ for path in glob.glob("chapters/*.md"):
     with open(path, "r", encoding="utf-8") as f:
         md_text = f.read()
     heading = re.search(r"^#+\s*(.+)$", md_text, re.M)
-    title = heading.group(1).strip().strip("*") if heading else f"Week {int(wid[6:])}"
+    title = heading.group(1).strip().strip("*") if heading else "Untitled chapter"
     body = re.sub(r"^#+\s*.+\n", "", md_text, count=1) if heading else md_text
     first_para = next((p for p in body.split("\n\n") if p.strip() and not p.lstrip().startswith(("#", "---", "***"))), "")
     chapters[wid] = {"title": title, "html": markdown.markdown(md_text), "excerpt": teaser(re.sub(r"[*_`>#]", "", first_para), 40)}
 
-weeks = sorted(set(days_by_week) | set(chapters), reverse=True)
+# Oldest first, numbered like a book: the first week of the story is Week 1
+weeks = sorted(set(days_by_week) | set(chapters))
+week_no = {wid: i + 1 for i, wid in enumerate(weeks)}
 
 # 2. Styles: the original typewriter look, plus the week toggle and cipher pages
 CSS_STYLES = """
@@ -167,7 +169,7 @@ def write(name, content):
 # 3. Chapter pages
 for wid, ch in chapters.items():
     ciphers_link = f'<p><a href="index.html#{wid}-ciphers">See this week’s ciphers →</a></p>' if days_by_week.get(wid) else ""
-    body = f"""<div class="nav-bar"><a href="index.html">← INDEX</a> <span>WEEK {int(wid[6:])} · {week_range(wid).upper()}</span></div>
+    body = f"""<div class="nav-bar"><a href="index.html">← INDEX</a> <span>WEEK {week_no[wid]} · {week_range(wid).upper()}</span></div>
 {ch["html"]}
 <hr>
 {ciphers_link}"""
@@ -179,7 +181,7 @@ for wid, days in days_by_week.items():
         d = frag["date"]
         prev_link = f'<a href="entry-{days[i-1]["date"]}.html">← {short_date(days[i-1]["date"]).upper()}</a>' if i > 0 else "<span></span>"
         next_link = f'<a href="entry-{days[i+1]["date"]}.html">{short_date(days[i+1]["date"]).upper()} →</a>' if i < len(days) - 1 else "<span></span>"
-        body = f"""<div class="nav-bar"><a href="index.html#{wid}-ciphers">← WEEK {int(wid[6:])} CIPHERS</a> <span>ENTRY · {short_date(d).upper()}</span></div>
+        body = f"""<div class="nav-bar"><a href="index.html#{wid}-ciphers">← WEEK {week_no[wid]} CIPHERS</a> <span>ENTRY · {short_date(d).upper()}</span></div>
 <h2>{date.fromisoformat(d):%A}, {short_date(d)}</h2>
 {markdown.markdown(frag["text"])}
 <div class="meta omen-label">Reality cipher</div>
@@ -213,7 +215,7 @@ for wid in weeks:
 
     blocks.append(f"""<section class="week" id="{wid}">
   <div class="week-head">
-    <div><div class="meta">Week {int(wid[6:])} · {week_range(wid)}</div><div class="week-title">{html.escape(title)}</div></div>
+    <div><div class="meta">Week {week_no[wid]} · {week_range(wid)}</div><div class="week-title">{html.escape(title)}</div></div>
     <div class="toggle">{btn("chapter", "Chapter")}{btn("ciphers", f"Ciphers ({len(days)})")}</div>
   </div>
   <div class="panel" data-panel="chapter"{"" if start_mode == "chapter" else " hidden"}>{chapter_panel}</div>
