@@ -145,8 +145,10 @@ THIS WEEK'S CIPHERS (raw daily scenes, each born from real-world events of that 
 {ciphers}
 
 TASK: Write Chapter {n}.
-1. It is one chapter of ONE continuous novel, not a standalone story. Do not re-introduce David, the town, or
-   anything the reader already knows; build on them. Keep every name, place, clue, and established fact consistent.
+1. It is one chapter of ONE continuous novel, not a standalone story. Open where the previous chapter ended. Do not
+   re-introduce David, the town, or anything the reader already knows, and don't repeat scenes already told; build on
+   them. Keep every name, role, place, clue, and established fact consistent with the story so far, even where a
+   cipher gets one wrong.
 2. Weave this week's ciphers into the ongoing plot, in order. Keep each cipher's key images and events, but you may
    reshape, connect, and bridge them so they read as consequences of what came before, not isolated episodes.
 3. Advance the central mystery: pay off or deepen at least one open thread, and let the omens build toward something.
@@ -156,7 +158,12 @@ Return JSON:
 - "title": the chapter's title only, without "Chapter" or any number (e.g. "The Thrumming Bay")
 - "chapter": the chapter text in Markdown paragraphs, with no title heading
 - "synopsis": 150 to 250 words summarizing what happens in this chapter, for continuity in later chapters
-- "threads": the updated state of the whole story after this chapter (carry forward everything still unresolved)
+- "threads": the story bible after this chapter, kept SHORT so it stays useful as the novel grows:
+    - "open_mysteries": at most 8, one sentence each; merge related ones, drop any that are resolved or abandoned
+    - "characters": at most 12, each "Name: role and relationship to David" (keep established roles fixed;
+      if a cipher contradicts one, follow the established role)
+    - "clues_and_objects": at most 12, the ones that still matter, one short phrase each
+    - "where_we_left_off": 2 to 3 sentences
 """
 
     try:
