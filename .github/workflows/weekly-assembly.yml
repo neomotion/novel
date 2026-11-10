@@ -2,7 +2,9 @@ name: Weekly Assembly
 
 on:
   schedule:
-    - cron: '0 4 * * 0'
+    # Daily at 08:30 UTC, just after the Gemini free-tier quota resets. Does nothing unless a week has finished (Sundays) or an
+    # earlier run stopped partway, in which case it picks up where that left off.
+    - cron: '30 8 * * *'
   workflow_dispatch:
     inputs:
       week:

@@ -7,7 +7,8 @@ are saved to data/story_so_far.json (and the latest threads to data/threads.json
 so the next chapter and the daily job can build on them.
 
 Modes:
-  default       assemble every finished week that has no chapter yet, oldest first
+  default       assemble every finished week that has no chapter yet, oldest first; if a
+                chapter is missing from the story memory, rewrite from there onward
   WEEK=2026-W45 rewrite just that week (uses the chapters before it as context)
   REBUILD=1     rewrite every finished week from the beginning, in order
 """
@@ -78,7 +79,12 @@ if os.environ.get("REBUILD", "").strip().lower() in ("1", "true", "yes"):
 elif only:
     targets = [only] if only in weeks else []
 else:
-    targets = [w for w in finished if not os.path.exists(f"chapters/{w}.md")]
+    # Rewrite from the first finished week that has no chapter, or whose chapter isn't in the story
+    # memory (e.g. a rebuild that stopped partway), so every chapter builds on the ones before it.
+    done = {s["week"] for s in story}
+    stale = [w for w in finished if w not in done or not os.path.exists(f"chapters/{w}.md")]
+    targets = [w for w in finished if stale and w >= stale[0]]
+    story = [s for s in story if not stale or s["week"] < stale[0]]
 
 if not targets:
     print("No weeks to assemble.")

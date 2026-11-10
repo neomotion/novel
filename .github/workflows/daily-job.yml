@@ -2,7 +2,9 @@ name: Daily Scene Generator
 
 on:
   schedule:
-    - cron: '0 3 * * 1-6'
+    # 09:30 UTC: after the Gemini free-tier quota resets (midnight Pacific) and after
+    # Weekly Assembly (08:30), so each page is written with the latest chapter in hand
+    - cron: '30 9 * * 1-6'
   workflow_dispatch:
 
 permissions:
