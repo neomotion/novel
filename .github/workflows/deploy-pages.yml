@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  # Bot pushes from the jobs below don't trigger `push`, so redeploy after them
+  workflow_run:
+    workflows: ["Daily Scene Generator", "Weekly Assembly"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:

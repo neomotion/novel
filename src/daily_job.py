@@ -4,12 +4,10 @@ import feedparser
 import requests
 import yfinance as yf
 from datetime import datetime
-from google import genai
 from google.genai import types
+from gemini import generate, models_from_env
 
-# 1. Initialize Gemini Client
-api_key = os.environ.get("GEMINI_API_KEY")
-client = genai.Client(api_key=api_key)
+MODELS = models_from_env("DAILY_MODELS", ["gemini-2.5-flash", "gemini-3.1-pro-preview"])
 
 def fetch_signals():
     signals = []
@@ -65,6 +63,10 @@ with open("data/threads.json", "r") as f:
 
 today_str = datetime.utcnow().strftime("%Y-%m-%d")
 
+if os.path.exists(f"fragments/{today_str}.json"):
+    print(f"Fragment for {today_str} already exists; nothing to do.")
+    raise SystemExit(0)
+
 # 4. Generate Scene with Gemini
 prompt = f"""
 You are writing a surreal, atmospheric psychological mystery novel inspired by Alan Wake.
@@ -88,15 +90,13 @@ TASK:
    - "prose": (The 2-3 paragraphs of novel text)
 """
 
-response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents=prompt,
-    config=types.GenerateContentConfig(
-        response_mime_type="application/json"
-    ),
+text = generate(
+    MODELS,
+    prompt,
+    config=types.GenerateContentConfig(response_mime_type="application/json"),
 )
 
-result = json.loads(response.text)
+result = json.loads(text)
 
 # 5. Save outputs
 os.makedirs("fragments", exist_ok=True)
