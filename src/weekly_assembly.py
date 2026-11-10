@@ -133,11 +133,11 @@ THE CLOSING PASSAGE OF CHAPTER {n - 1} (pick up from here):
     else:
         position = "This is CHAPTER 1, the opening of the novel. Establish David, Blackwood Bay, and the first mystery that the whole book will follow."
 
-    prompt = f"""You are the novelist and continuity editor of a serialized literary mystery novel in the spirit of Alan Wake:
-a writer-investigator, a small coastal town where reality is thinning, and real-world events leaking in as omens.
+    prompt = f"""You are the novelist and continuity editor of a serialized psychological horror mystery: a writer-investigator in a
+small coastal town, typed pages that come true, a living dark that takes people, and light as the only defense.
 
-PROTAGONIST: {json.dumps(bible.get('protagonist', {}), ensure_ascii=False)}
-TONE RULES: {json.dumps(bible.get('tone_rules', []), ensure_ascii=False)}
+STORY BIBLE (premise, world rules, fixed characters, tone, and what to avoid; it overrides any cipher that contradicts it):
+{json.dumps(bible, indent=2, ensure_ascii=False)}
 
 {position}
 
@@ -151,7 +151,10 @@ TASK: Write Chapter {n}.
    cipher gets one wrong.
 2. Weave this week's ciphers into the ongoing plot, in order. Keep each cipher's key images and events, but you may
    reshape, connect, and bridge them so they read as consequences of what came before, not isolated episodes.
-3. Advance the central mystery: pay off or deepen at least one open thread, and let the omens build toward something.
+3. Advance the central mystery: pay off or deepen at least one open thread. Each daily cipher is one of the typed
+   manuscript pages from the story bible, so show David finding or reckoning with at least one page in the chapter.
+   Include at least one night scene of real danger from the dark. Follow every rule in the story bible, especially
+   the "avoid" list and the rule against repeating the same uncanny motifs.
 4. Hardboiled, restrained, moody, surreal. 1,500 to 2,500 words. End on a hook that pulls into the next chapter.
 
 Return JSON:

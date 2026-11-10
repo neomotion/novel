@@ -89,11 +89,11 @@ if os.path.exists(f"fragments/{today_str}.json"):
 
 # 4. Generate Scene with Gemini
 prompt = f"""
-You are writing a surreal, atmospheric psychological mystery novel inspired by Alan Wake.
-Protagonist: {story_bible['protagonist']['name']}, {story_bible['protagonist']['occupation']} in {story_bible['protagonist']['location']}.
+You are writing one day's page of a serialized psychological horror mystery: a writer-investigator in a small coastal
+town, typed pages that come true, a living dark that takes people, and light as the only defense.
 
-WORLD RULES & TONE:
-{json.dumps(story_bible['tone_rules'], indent=2)}
+STORY BIBLE (premise, world rules, fixed characters, tone, and what to avoid):
+{json.dumps(story_bible, indent=2, ensure_ascii=False)}
 
 THE STORY SO FAR (latest chapters):
 {recent_chapters}
@@ -112,7 +112,8 @@ TASK:
 2. Translate the selected signals into eerie weather, radio static, town rumors, or strange omens (NEVER mention the real event explicitly).
 3. Write a tight 2-3 paragraph scene that continues directly from the most recent scene. It is one day in a
    continuous novel: keep names, places, and clues consistent, follow up on at least one open thread, and don't
-   re-introduce David or the town. Maintain a hardboiled, restrained, moody investigative tone.
+   re-introduce David or the town. Maintain a hardboiled, restrained, moody investigative tone. Follow the story
+   bible's tone rules and "avoid" list, and don't reuse the uncanny motif the most recent scene leaned on.
 4. Return your response in valid JSON with two fields:
    - "seed_event": (A string describing which real-world events you chose and how you manifested them as omens)
    - "prose": (The 2-3 paragraphs of novel text)

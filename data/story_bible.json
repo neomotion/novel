@@ -1,12 +1,41 @@
 {
+  "title": "The Manuscript",
+  "premise": "David Vance, an investigative journalist who once wanted to be a novelist, comes back to Blackwood Bay, the coastal town where his younger sister vanished twenty years ago. Boats are disappearing. Then he starts finding typed pages in his own voice, describing what is about to happen in Blackwood Bay. He doesn't remember writing them. What the pages describe comes true. Something under the bay wants a story finished, and it has chosen him to write it.",
   "protagonist": {
     "name": "David Vance",
-    "occupation": "Investigative Journalist",
-    "location": "Blackwood Bay"
+    "occupation": "Investigative journalist and failed novelist",
+    "location": "Blackwood Bay, a fishing town on a cold northern coast",
+    "wound": "His sister Iris Vance vanished at age seven, twenty years ago, during a town-wide blackout. He was supposed to be watching her.",
+    "habits": "Keeps an old typewriter he swears he hasn't used in years; talks to himself in hardboiled narration; drinks too much coffee; trusts facts until the facts stop holding still."
   },
+  "world_rules": [
+    "The manuscript pages: typed pages in David's voice turn up ahead of events (in his car, under his door, in evidence boxes, washed up on the shore). Events then happen as written, though rarely the way he expects. Each daily cipher is one of these pages. Whether David is writing them in his sleep, or something is writing through him, stays ambiguous.",
+    "The dark: at night something rises from the bay, a living darkness the town calls the Undertow. It takes people. The taken sometimes come back as shadowed, murmuring shapes that repeat fragments of their old lives.",
+    "Light holds the dark back: headlights, flares, flashlights, and above all the lighthouse. The lighthouse was built a century ago to keep the Undertow down, not to guide ships. Its light has been failing since it was sold.",
+    "Real-world events leak into Blackwood Bay only as omens: weather, broadcasts, rumors, tides, animal behavior, numbers. Never name the real event.",
+    "The number seven recurs: 7.76 nautical miles, 7666, 7773, 7757, a $7,773,000 deed, a girl who was seven. It means something specific that will eventually be revealed."
+  ],
+  "characters": [
+    "David Vance: protagonist, journalist, finds the manuscript pages",
+    "Iris Vance: David's younger sister, vanished at seven during the blackout twenty years ago; her wooden toy bird keeps turning up",
+    "Chief Miller: Blackwood Bay's police chief; knows more than he says, afraid rather than corrupt",
+    "Elias Thorne: patriarch of the family that built the town and the lighthouse; sold the lighthouse in a dubious deal",
+    "Elara Thorne: Elias's granddaughter, recently taken; her diary tracks the dark's return",
+    "Agnes Finch: owner of the diner, taken; Lena now runs the diner",
+    "Lena: waitress turned diner manager, sharp and dry-humored, David's one reliable ally",
+    "The lighthouse keeper: vanished five years ago; his logbook explains what the light was really for"
+  ],
   "tone_rules": [
-    "Restrained, moody prose leaning into eerie surrealism.",
-    "Real-world events manifest purely as strange weather, radio static, or town omens.",
-    "Keep scenes grounded in concrete investigative details."
+    "Hardboiled first-person-flavored narration in third person: David's wry inner voice, short punchy lines among longer atmospheric ones.",
+    "Small-town Americana with a horror edge: diners, radio call-in shows, a local DJ, quirky townspeople with warmth and humor, and then the dark.",
+    "Night is dangerous. Give regular moments of real threat and pursuit where David must reach light, not only eerie atmosphere.",
+    "Each scene must move the plot: a new page, a new taken person, a confrontation, a discovery, a choice. Ambient dread is seasoning, not the meal.",
+    "Vary the uncanny. Do not lean on the same motifs every scene (the hum, hairline cracks, radio static); rotate through dreams, broadcasts, the pages, the taken, the tides, the light failing, things that only happen at night.",
+    "Keep the central question alive: is David reporting the story, or writing it?"
+  ],
+  "avoid": [
+    "Do not name or quote Alan Wake, Bright Falls, Cauldron Lake, the Dark Presence, Alice, or any other character or place from other works.",
+    "Do not have anything whisper or spell the word 'Wake'.",
+    "Do not resolve the central mysteries early; reveal one real answer at a time."
   ]
 }
