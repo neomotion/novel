@@ -33,6 +33,10 @@ def generate(models, contents, config=None, attempts=4):
                 if e.code == 404:  # model retired or unknown: try the next one
                     print(f"{model} unavailable: {e.message}")
                     break
+                if e.code == 429 and model != models[-1]:
+                    # Out of quota (e.g. free tier has none for this model): don't wait, move on
+                    print(f"{model} out of quota; trying {models[models.index(model) + 1]}")
+                    break
                 if e.code not in RETRY_CODES:
                     raise
             print(f"{model} attempt {attempt + 1} failed: {last_error}")

@@ -1,4 +1,5 @@
 import os
+import glob
 import json
 import feedparser
 import requests
@@ -61,6 +62,25 @@ with open("data/story_bible.json", "r") as f:
 with open("data/threads.json", "r") as f:
     threads = json.load(f)
 
+# The story so far: the latest chapters' synopses, plus the most recent ciphers
+# (this week's, or the last few if the week just started) so today follows on.
+try:
+    with open("data/story_so_far.json", "r") as f:
+        story_so_far = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    story_so_far = []
+recent_chapters = "\n\n".join(
+    f"Chapter {c['chapter']} — {c['title']}: {c['synopsis']}" for c in story_so_far[-2:]
+) or "(No chapters yet.)"
+
+recent_files = sorted(glob.glob("fragments/*.json"))[-4:]
+recent_ciphers = []
+for path in recent_files:
+    with open(path, "r") as f:
+        frag = json.load(f)
+    recent_ciphers.append(f"[{frag['date']}]\n{frag['text']}")
+recent_ciphers = "\n\n---\n\n".join(recent_ciphers) or "(None yet.)"
+
 today_str = datetime.utcnow().strftime("%Y-%m-%d")
 
 if os.path.exists(f"fragments/{today_str}.json"):
@@ -75,8 +95,14 @@ Protagonist: {story_bible['protagonist']['name']}, {story_bible['protagonist']['
 WORLD RULES & TONE:
 {json.dumps(story_bible['tone_rules'], indent=2)}
 
-ACTIVE PLOT THREADS:
-{json.dumps(threads, indent=2)}
+THE STORY SO FAR (latest chapters):
+{recent_chapters}
+
+OPEN THREADS, CHARACTERS, AND CLUES:
+{json.dumps(threads, indent=2, ensure_ascii=False)}
+
+THE MOST RECENT DAILY SCENES (today's scene comes right after these):
+{recent_ciphers}
 
 REAL-WORLD SEED SIGNALS TODAY:
 {json.dumps(signals, indent=2)}
@@ -84,7 +110,9 @@ REAL-WORLD SEED SIGNALS TODAY:
 TASK:
 1. Review today's real-world signals across News, Tech, Markets, and Nature. Select 1 to 3 of them.
 2. Translate the selected signals into eerie weather, radio static, town rumors, or strange omens (NEVER mention the real event explicitly).
-3. Write a tight 2-3 paragraph scene fragment continuing the story. Maintain a hardboiled, restrained, moody investigative tone.
+3. Write a tight 2-3 paragraph scene that continues directly from the most recent scene. It is one day in a
+   continuous novel: keep names, places, and clues consistent, follow up on at least one open thread, and don't
+   re-introduce David or the town. Maintain a hardboiled, restrained, moody investigative tone.
 4. Return your response in valid JSON with two fields:
    - "seed_event": (A string describing which real-world events you chose and how you manifested them as omens)
    - "prose": (The 2-3 paragraphs of novel text)

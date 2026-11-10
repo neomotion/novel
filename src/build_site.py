@@ -61,14 +61,18 @@ for path in glob.glob("chapters/*.md"):
     with open(path, "r", encoding="utf-8") as f:
         md_text = f.read()
     heading = re.search(r"^#+\s*(.+)$", md_text, re.M)
-    title = heading.group(1).strip().strip("*") if heading else "Untitled chapter"
+    title = heading.group(1).strip().strip("*") if heading else "Untitled"
+    # Drop any number the model put in the title; the site numbers chapters itself
+    title = re.sub(r"^chapter\s+[\w-]+\s*[:.\-–—]\s*", "", title, flags=re.I) or title
     body = re.sub(r"^#+\s*.+\n", "", md_text, count=1) if heading else md_text
     first_para = next((p for p in body.split("\n\n") if p.strip() and not p.lstrip().startswith(("#", "---", "***"))), "")
-    chapters[wid] = {"title": title, "html": markdown.markdown(md_text), "excerpt": teaser(re.sub(r"[*_`>#]", "", first_para), 40)}
+    chapters[wid] = {"title": title, "html": markdown.markdown(body), "excerpt": teaser(re.sub(r"[*_`>#]", "", first_para), 40)}
 
 # Oldest first, numbered like a book: the first week of the story is Week 1
 weeks = sorted(set(days_by_week) | set(chapters))
 week_no = {wid: i + 1 for i, wid in enumerate(weeks)}
+for wid, ch in chapters.items():
+    ch["title"] = f"Chapter {week_no[wid]}: {ch['title']}"
 
 # 2. Styles: the original typewriter look, plus the week toggle and cipher pages
 CSS_STYLES = """
@@ -168,6 +172,7 @@ def write(name, content):
 for wid, ch in chapters.items():
     ciphers_link = f'<p><a href="index.html#{wid}-ciphers">See this week’s ciphers →</a></p>' if days_by_week.get(wid) else ""
     body = f"""<div class="nav-bar"><a href="index.html">← INDEX</a> <span>WEEK {week_no[wid]} · {week_range(wid).upper()}</span></div>
+<h1>{html.escape(ch["title"])}</h1>
 {ch["html"]}
 <hr>
 {ciphers_link}"""
