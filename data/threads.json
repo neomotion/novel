@@ -1,37 +1,40 @@
 {
   "open_mysteries": [
-    "Who is writing the manuscript pages David finds, and why do they describe events before they happen?",
-    "What is the source of the pervasive hum and the strange radio signals that afflict Blackwood Bay, and why are they escalating?",
-    "What is the 'Undertow,' and why does it take people, leaving them as shadowed, murmuring shapes?",
-    "What happened to David's sister, Iris, twenty years ago, and how does it connect to current events and the number seven?",
-    "What is the significance of the recurring number seven and related coordinates in Blackwood Bay's strange phenomena?",
-    "Why are boats disappearing from Blackwood Bay's waters, and what are 'lights on the water' and the 'song that pulled the tide'?",
-    "Why is the lighthouse light failing, and what was its true, original purpose in holding back the Undertow?",
-    "What is the 'gate' whispered about on the radio, and how does it relate to the structural instability and ancient fault lines beneath the town?"
+    "Who is writing the manuscript pages, and why do they describe events before they happen, making David feel like 'the pen'?",
+    "What is the source of the pervasive hum, now physically fracturing the town, impacting electronics, and described as the earth 'whispering' and exhaling?",
+    "What is the 'Undertow,' why does it take people, and how do its fragmented whispers and physical pursuits connect to the 'unspoken contracts' and an ancient 'gate'?",
+    "What happened to David's sister, Iris, twenty years ago, and how does the child's counting rhyme and the child's toy in the burned Peterson cabin connect to her?",
+    "What is the significance of the recurring numbers '7.76', 'LH-7', '7666', '7773', and now '7757' on a property deed, and how do they connect to the 'seven' mentioned by Thorne?",
+    "What are the full terms of the 'unspoken contracts' and ancient 'bargain' Elias Thorne alluded to, involving 'seven of everything'?",
+    "What is the 'gate' whispered about on the radio and by Thorne, and how does it relate to the town's fracturing order and the 'rewriting' of reality?",
+    "What is the meaning of the phosphorescent fungus, the iridescent film on the bay, and the scorched earth at the Peterson cabin?"
   ],
   "characters": [
-    "David Vance: Investigative journalist and failed novelist, searching for answers in Blackwood Bay.",
-    "Iris Vance: David's younger sister, vanished at age seven twenty years ago.",
-    "Chief Miller: Blackwood Bay's police chief; knows more than he says, afraid rather than corrupt.",
-    "Elias Thorne: Patriarch of the family that built the town and the lighthouse; sold the lighthouse in a dubious deal.",
-    "Elara Thorne: Elias's granddaughter, recently taken; her diary tracks the dark's return.",
-    "Agnes Finch: Owner of the diner, now showing signs of being affected and drained by the encroaching dark.",
-    "Lena: Waitress turned diner manager, sharp and dry-humored, David's one reliable ally.",
-    "The lighthouse keeper: Vanished five years ago; his logbook explains what the light was really for."
+    "David Vance: Investigative journalist, protagonist, now directly targeted by the dark, focused on new clues.",
+    "Iris Vance: David's younger sister, vanished at age seven twenty years ago; her memory is stirred by fragmented voices and a new discovery.",
+    "Chief Miller: Blackwood Bay's police chief; now unresponsive, deepening David's isolation.",
+    "Elias Thorne: Patriarch of the family that built the town and the lighthouse; confirmed his role in the lighthouse's failure, hinted at ancient pacts.",
+    "Elara Thorne: Elias's granddaughter, recently taken; her actions were described by Elias as a foolish attempt to renegotiate 'terms'.",
+    "Agnes Finch: Owner of the diner, affected by the dark; her old property deed was a key clue in Thorne's dealings.",
+    "Lena: Waitress turned diner manager, David's sharp and reliable ally.",
+    "The lighthouse keeper: Vanished five years ago; his cottage shows signs of unsettling activity.",
+    "Caleb Thorne: Elias's estranged nephew, potentially a source of information about the Thorne family's dealings."
   ],
   "clues_and_objects": [
-    "Manuscript pages: Typed pages in David's voice, describing future events, now mentioning 'gate'.",
-    "The pervasive hum: A low, guttural vibration from the bay and earth, now escalating.",
-    "Strange radio static: A chorus of fractured tones, whispers, and fragmented words like 'gate' and 'seven'.",
-    "7.76 nautical miles / the number seven: A precise coordinate and recurring number linked to the dark.",
-    "Flashlight: David's primary defense against the dark at night.",
-    "Lighthouse: Its failing light is crucial to holding back the Undertow.",
-    "Iris's wooden toy bird: A recurring object connected to David's missing sister.",
+    "Manuscript pages: Typed pages in David's voice, now describing communication failures and a new incident at the Peterson cabin.",
+    "The pervasive hum: A low, guttural vibration from the bay and earth, causing structural cracks and electronic interference, now affecting David's physical senses.",
+    "Strange radio static: A chorus of fractured tones, whispers, and now a 'digital maw' that consumes communication.",
+    "7.76 nautical miles / the number seven: Recurring number, now explicitly linked by Thorne to an ancient 'bargain' involving 'seven of everything'.",
+    "Flashlight: David's primary, increasingly unreliable, defense against the dark at night.",
+    "Lighthouse: Its failing light is crucial, its acquisition by Thorne now directly linked to keeping an ancient 'gate' closed.",
+    "Iris's wooden toy bird: A recurring object connected to David's missing sister, linked to the child's toy found in ash.",
     "Old typewriter: David's own machine, which he suspects might be creating the pages.",
-    "Waterproof notebook: Contains tide charts and David's investigation notes.",
-    "Elara Thorne's diary: Tracks the dark's return, likely hidden in the cannery.",
-    "Cannery blueprints: Reveal structural weaknesses or hidden aspects of the town.",
-    "'Serpent's Kiss' logbook: Mentions 'lights on the water' and a 'song that pulled the tide'."
+    "Waterproof notebook: Contains David's investigation notes.",
+    "Elara Thorne's diary: Tracks the dark's return, now linked to its specific communication patterns.",
+    "Agnes Finch's property deed and eviction notice: Directly link Agnes and the '7757' property to Elias Thorne's acquisition scheme.",
+    "Iridescent slick: A peculiar, industrial-smelling film now covering Blackwood Bay, hinting at seepage.",
+    "Silent foghorn: The town's long-standing anchor of sound has gone unnervingly silent, signaling a deeper loss of control.",
+    "Peterson cabin details: Scorched earth and an untouched child's toy, now a new focal point for David's investigation."
   ],
-  "where_we_left_off": "David Vance continues his investigation into the escalating phenomena of Blackwood Bay, uncovering new clues related to Elara Thorne and other disappearances, while grappling with the physical manifestations of the encroaching dark. The town's pervasive hum and strange radio broadcasts intensify, pushing him closer to a terrifying truth about a 'gate' that might be breaking beneath the town."
+  "where_we_left_off": "David Vance confronted Elias Thorne, who confirmed his role in the lighthouse's failure, hinting at older, non-human 'contracts' and a 'gate'. During his escape from Thorne's mansion, David received a new manuscript page detailing a 'Peterson cabin' with 'scorched earth' and a 'child's toy' linked to Iris, which became a new objective as he fled a direct pursuit from the Undertow."
 }
