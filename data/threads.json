@@ -1,40 +1,38 @@
 {
   "open_mysteries": [
-    "Who is writing the manuscript pages, and why do they describe events before they happen, making David feel like 'the pen'?",
-    "What is the source of the pervasive hum, now physically fracturing the town, impacting electronics, and described as the earth 'whispering' and exhaling?",
-    "What is the 'Undertow,' why does it take people, and how do its fragmented whispers and physical pursuits connect to the 'unspoken contracts' and an ancient 'gate'?",
-    "What happened to David's sister, Iris, twenty years ago, and how does the child's counting rhyme and the child's toy in the burned Peterson cabin connect to her?",
-    "What is the significance of the recurring numbers '7.76', 'LH-7', '7666', '7773', and now '7757' on a property deed, and how do they connect to the 'seven' mentioned by Thorne?",
-    "What are the full terms of the 'unspoken contracts' and ancient 'bargain' Elias Thorne alluded to, involving 'seven of everything'?",
+    "Who is L. Huang, and what is their true role in Elias Thorne's scheme to undermine Blackwood Bay and the lighthouse?",
+    "What is the full significance of the recurring number seven, now linked to L. Huang's payment and the impossible timestamp of 7:56:17?",
+    "What happened at the Peterson cabin, and how does the scorched earth and untouched child's toy connect to David's sister Iris?",
+    "What is the 'Undertow,' and how do its whispers and physical pursuits connect to Thorne's 'unspoken contracts' and an ancient 'gate'?",
+    "What are the full terms of the ancient 'bargain' Elias Thorne alluded to, involving 'seven of everything'?",
     "What is the 'gate' whispered about on the radio and by Thorne, and how does it relate to the town's fracturing order and the 'rewriting' of reality?",
-    "What is the meaning of the phosphorescent fungus, the iridescent film on the bay, and the scorched earth at the Peterson cabin?"
+    "Is David truly writing the manuscript pages, or is he merely a conduit for an unseen force that dictates Blackwood Bay's narrative?",
+    "What is causing the phosphorescent fungus, the iridescent film on the bay, and the 'ground stop' phenomenon affecting the town's time and environment?"
   ],
   "characters": [
-    "David Vance: Investigative journalist, protagonist, now directly targeted by the dark, focused on new clues.",
-    "Iris Vance: David's younger sister, vanished at age seven twenty years ago; her memory is stirred by fragmented voices and a new discovery.",
-    "Chief Miller: Blackwood Bay's police chief; now unresponsive, deepening David's isolation.",
-    "Elias Thorne: Patriarch of the family that built the town and the lighthouse; confirmed his role in the lighthouse's failure, hinted at ancient pacts.",
+    "David Vance: Investigative journalist, protagonist, now actively investigating L. Huang and the Peterson cabin, increasingly aware of his role as a conduit.",
+    "Iris Vance: David's younger sister, vanished at age seven twenty years ago; now directly linked to the Peterson cabin incident.",
+    "Chief Miller: Blackwood Bay's police chief; now completely cut off by the digital maw.",
+    "Elias Thorne: Patriarch, confirmed his role in the lighthouse's failure, hinted at ancient pacts, now revealed to have a silent partner, L. Huang.",
     "Elara Thorne: Elias's granddaughter, recently taken; her actions were described by Elias as a foolish attempt to renegotiate 'terms'.",
-    "Agnes Finch: Owner of the diner, affected by the dark; her old property deed was a key clue in Thorne's dealings.",
     "Lena: Waitress turned diner manager, David's sharp and reliable ally.",
+    "L. Huang: Thorne's silent partner, revealed to have received a significant consultancy fee for the lighthouse 'renovation'.",
     "The lighthouse keeper: Vanished five years ago; his cottage shows signs of unsettling activity.",
     "Caleb Thorne: Elias's estranged nephew, potentially a source of information about the Thorne family's dealings."
   ],
   "clues_and_objects": [
-    "Manuscript pages: Typed pages in David's voice, now describing communication failures and a new incident at the Peterson cabin.",
-    "The pervasive hum: A low, guttural vibration from the bay and earth, causing structural cracks and electronic interference, now affecting David's physical senses.",
-    "Strange radio static: A chorus of fractured tones, whispers, and now a 'digital maw' that consumes communication.",
-    "7.76 nautical miles / the number seven: Recurring number, now explicitly linked by Thorne to an ancient 'bargain' involving 'seven of everything'.",
-    "Flashlight: David's primary, increasingly unreliable, defense against the dark at night.",
-    "Lighthouse: Its failing light is crucial, its acquisition by Thorne now directly linked to keeping an ancient 'gate' closed.",
-    "Iris's wooden toy bird: A recurring object connected to David's missing sister, linked to the child's toy found in ash.",
-    "Old typewriter: David's own machine, which he suspects might be creating the pages.",
-    "Waterproof notebook: Contains David's investigation notes.",
+    "Manuscript pages: Now appearing frequently, revealing L. Huang, impossible timestamps, and the town's 'ground stop'.",
+    "The pervasive hum: A low, guttural vibration from the bay and earth, causing structural cracks, electronic interference, and now affecting David's physical senses.",
+    "Strange radio static: A chorus of fractured tones, whispers, and a 'digital maw' that has now consumed all communication.",
+    "7.76 nautical miles / the number seven: Recurring number, now linked to L. Huang's payment and impossible timestamps.",
+    "Flashlight: David's primary defense against the dark at night.",
+    "Lighthouse: Its failing light is crucial, its acquisition by Thorne linked to keeping an ancient 'gate' closed, and now to L. Huang.",
+    "Iris's wooden toy bird: A recurring object connected to David's missing sister, linked to the child's toy found in ash at the Peterson cabin.",
+    "Old typewriter: David's own machine, which he suspects might be creating the pages, fueling his 'conduit' realization.",
+    "Waterproof notebook: Contains David's investigation notes, including impossible timestamps.",
     "Elara Thorne's diary: Tracks the dark's return, now linked to its specific communication patterns.",
-    "Agnes Finch's property deed and eviction notice: Directly link Agnes and the '7757' property to Elias Thorne's acquisition scheme.",
-    "Iridescent slick: A peculiar, industrial-smelling film now covering Blackwood Bay, hinting at seepage.",
-    "Silent foghorn: The town's long-standing anchor of sound has gone unnervingly silent, signaling a deeper loss of control.",
-    "Peterson cabin details: Scorched earth and an untouched child's toy, now a new focal point for David's investigation."
+    "Peterson cabin details: Scorched earth and an untouched child's toy, now David's urgent objective.",
+    "Stopped clocks (7:56:17): A new manifestation of the dark's influence, halting time across the town."
   ],
-  "where_we_left_off": "David Vance confronted Elias Thorne, who confirmed his role in the lighthouse's failure, hinting at older, non-human 'contracts' and a 'gate'. During his escape from Thorne's mansion, David received a new manuscript page detailing a 'Peterson cabin' with 'scorched earth' and a 'child's toy' linked to Iris, which became a new objective as he fled a direct pursuit from the Undertow."
+  "where_we_left_off": "David Vance escaped a direct pursuit from the Undertow after confronting Elias Thorne, who revealed ancient pacts. Guided by a series of new manuscript pages, David investigated the town archives, uncovering L. Huang's role in Thorne's schemes and experiencing an escalating collapse of reality. Now, with the town in a profound 'ground stop,' David is compelled to find the Peterson cabin, where he expects to find answers related to Iris."
 }

@@ -347,5 +347,49 @@
       ],
       "where_we_left_off": "David Vance confronted Elias Thorne, who confirmed his role in the lighthouse's failure, hinting at older, non-human 'contracts' and a 'gate'. During his escape from Thorne's mansion, David received a new manuscript page detailing a 'Peterson cabin' with 'scorched earth' and a 'child's toy' linked to Iris, which became a new objective as he fled a direct pursuit from the Undertow."
     }
+  },
+  {
+    "week": "2026-W46",
+    "chapter": 9,
+    "title": "The Gatekeeper's Ledger",
+    "synopsis": "David Vance escapes the Undertow after confronting Elias Thorne, making it back to his office, shaken but driven by the manuscript page detailing the Peterson cabin. A new manuscript page appears, guiding him to the Blackwood Bay archives with hints of a mysterious name: \"Huang.\" Following this lead, David discovers another page at the archives, revealing a specific ledger entry for a \"Consultancy fee, L. Huang, 7,625.74,\" linking the unknown figure to Elias Thorne's lighthouse 'renovation' scheme and the recurring 'seven' motif. As he processes this discovery, the archives become increasingly hostile: the hum intensifies into a groan, the microfilm reader dies, a hairline crack appears on the wall, and his phone loses all signal, signaling the digital maw's total consumption of communication. Subsequent pages deepen his realization that he is a conduit for the unfolding narrative, noticing a phosphorescent glow and connecting the dots between L. Huang, Thorne, Iris, and the silent lighthouse. Leaving the archives, David finds a final page describing a town-wide 'ground stop,' where clocks freeze at 7:56:17, and the earth groans, urging him towards the Peterson cabin for answers before Blackwood Bay's reality completely unravels.",
+    "threads": {
+      "open_mysteries": [
+        "Who is L. Huang, and what is their true role in Elias Thorne's scheme to undermine Blackwood Bay and the lighthouse?",
+        "What is the full significance of the recurring number seven, now linked to L. Huang's payment and the impossible timestamp of 7:56:17?",
+        "What happened at the Peterson cabin, and how does the scorched earth and untouched child's toy connect to David's sister Iris?",
+        "What is the 'Undertow,' and how do its whispers and physical pursuits connect to Thorne's 'unspoken contracts' and an ancient 'gate'?",
+        "What are the full terms of the ancient 'bargain' Elias Thorne alluded to, involving 'seven of everything'?",
+        "What is the 'gate' whispered about on the radio and by Thorne, and how does it relate to the town's fracturing order and the 'rewriting' of reality?",
+        "Is David truly writing the manuscript pages, or is he merely a conduit for an unseen force that dictates Blackwood Bay's narrative?",
+        "What is causing the phosphorescent fungus, the iridescent film on the bay, and the 'ground stop' phenomenon affecting the town's time and environment?"
+      ],
+      "characters": [
+        "David Vance: Investigative journalist, protagonist, now actively investigating L. Huang and the Peterson cabin, increasingly aware of his role as a conduit.",
+        "Iris Vance: David's younger sister, vanished at age seven twenty years ago; now directly linked to the Peterson cabin incident.",
+        "Chief Miller: Blackwood Bay's police chief; now completely cut off by the digital maw.",
+        "Elias Thorne: Patriarch, confirmed his role in the lighthouse's failure, hinted at ancient pacts, now revealed to have a silent partner, L. Huang.",
+        "Elara Thorne: Elias's granddaughter, recently taken; her actions were described by Elias as a foolish attempt to renegotiate 'terms'.",
+        "Lena: Waitress turned diner manager, David's sharp and reliable ally.",
+        "L. Huang: Thorne's silent partner, revealed to have received a significant consultancy fee for the lighthouse 'renovation'.",
+        "The lighthouse keeper: Vanished five years ago; his cottage shows signs of unsettling activity.",
+        "Caleb Thorne: Elias's estranged nephew, potentially a source of information about the Thorne family's dealings."
+      ],
+      "clues_and_objects": [
+        "Manuscript pages: Now appearing frequently, revealing L. Huang, impossible timestamps, and the town's 'ground stop'.",
+        "The pervasive hum: A low, guttural vibration from the bay and earth, causing structural cracks, electronic interference, and now affecting David's physical senses.",
+        "Strange radio static: A chorus of fractured tones, whispers, and a 'digital maw' that has now consumed all communication.",
+        "7.76 nautical miles / the number seven: Recurring number, now linked to L. Huang's payment and impossible timestamps.",
+        "Flashlight: David's primary defense against the dark at night.",
+        "Lighthouse: Its failing light is crucial, its acquisition by Thorne linked to keeping an ancient 'gate' closed, and now to L. Huang.",
+        "Iris's wooden toy bird: A recurring object connected to David's missing sister, linked to the child's toy found in ash at the Peterson cabin.",
+        "Old typewriter: David's own machine, which he suspects might be creating the pages, fueling his 'conduit' realization.",
+        "Waterproof notebook: Contains David's investigation notes, including impossible timestamps.",
+        "Elara Thorne's diary: Tracks the dark's return, now linked to its specific communication patterns.",
+        "Peterson cabin details: Scorched earth and an untouched child's toy, now David's urgent objective.",
+        "Stopped clocks (7:56:17): A new manifestation of the dark's influence, halting time across the town."
+      ],
+      "where_we_left_off": "David Vance escaped a direct pursuit from the Undertow after confronting Elias Thorne, who revealed ancient pacts. Guided by a series of new manuscript pages, David investigated the town archives, uncovering L. Huang's role in Thorne's schemes and experiencing an escalating collapse of reality. Now, with the town in a profound 'ground stop,' David is compelled to find the Peterson cabin, where he expects to find answers related to Iris."
+    }
   }
 ]
