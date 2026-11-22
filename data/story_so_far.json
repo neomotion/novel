@@ -391,5 +391,47 @@
       ],
       "where_we_left_off": "David Vance escaped a direct pursuit from the Undertow after confronting Elias Thorne, who revealed ancient pacts. Guided by a series of new manuscript pages, David investigated the town archives, uncovering L. Huang's role in Thorne's schemes and experiencing an escalating collapse of reality. Now, with the town in a profound 'ground stop,' David is compelled to find the Peterson cabin, where he expects to find answers related to Iris."
     }
+  },
+  {
+    "week": "2026-W47",
+    "chapter": 10,
+    "title": "The Architect's Foundation",
+    "synopsis": "As the town remains in a 'ground stop,' David Vance leaves the archives, observing Blackwood Bay's escalating instability: erratic streetlights, a new crack on Main Street, and unnaturally still, iridescent waters. He discovers a manuscript page revealing that L. Huang, the architect, suffered a crumbled empire and a 'debt repaid in foundations,' implying Elias Thorne is exploiting or cleaning up Huang’s downfall. Continuing towards the Peterson cabin, David passes the covered bridge, noting its violently torn railing and the strangely angled masts of docked boats. A deep, guttural grinding begins beneath his feet, making the pavement flex and introducing an acrid tang to the air. The grinding transitions into a low, resonant thrum as the air drops in temperature, carrying a sharp saline chill. The iridescent film on the bay coalesces into slow, deliberate spirals, like unseen gears. A violent seismic punch then reveals a rusted bollard and a corroded copper plate etched with '701,' linking the number seven to Huang's structural failures. David sees the Peterson cabin's windows pulsing with sickly green phosphorescence. As he approaches, the ground sways, and he realizes this is an 'engineered collapse.' He sees shifting shadows within, a splintered door, and ash on the porch, confirming his sister Iris's connection to the site and the Undertow's destructive nature. David enters the cabin, prepared for the grim truth.",
+    "threads": {
+      "open_mysteries": [
+        "Who is L. Huang, and what was the full extent of his crumbled empire and the 'debt repaid in foundations' that Elias Thorne is exploiting?",
+        "What is the full significance of the recurring number seven, now linked to L. Huang's payment, the impossible timestamp of 7:56:17, and the '701' found on the copper plate?",
+        "What happened inside the Peterson cabin, what did the Undertow do there, and how does the scorched earth, ash, and untouched child's toy connect to David's sister Iris?",
+        "What is the 'Undertow,' and how do its whispers, physical pursuits, and the 'engineered collapse' of Blackwood Bay connect to Thorne's 'unspoken contracts' and an ancient 'gate'?",
+        "What are the full terms of the ancient 'bargain' Elias Thorne alluded to, involving 'seven of everything'?",
+        "Is David truly writing the manuscript pages, or is he merely a conduit for an unseen force that dictates Blackwood Bay's narrative?",
+        "What is causing the phosphorescent fungus, the iridescent film on the bay that now forms spirals, and the 'ground stop' phenomenon affecting the town's time and environment?"
+      ],
+      "characters": [
+        "David Vance: Investigative journalist, protagonist, now inside the Peterson cabin, directly confronting the mystery of Iris and Huang.",
+        "Iris Vance: David's younger sister, vanished at age seven twenty years ago; directly linked to the Peterson cabin incident.",
+        "Chief Miller: Blackwood Bay's police chief; completely cut off by the digital maw.",
+        "Elias Thorne: Patriarch, confirmed his role in the lighthouse's failure, hinted at ancient pacts, now revealed to be exploiting L. Huang's downfall.",
+        "Elara Thorne: Elias's granddaughter, recently taken; her actions were described by Elias as a foolish attempt to renegotiate 'terms'.",
+        "Lena: Waitress turned diner manager, David's sharp and reliable ally.",
+        "L. Huang: Thorne's silent partner, an architect whose empire crumbled, owing a 'debt repaid in foundations,' linked to the number '701.'",
+        "The lighthouse keeper: Vanished five years ago; his cottage shows signs of unsettling activity."
+      ],
+      "clues_and_objects": [
+        "Manuscript pages: Now appearing frequently, revealing L. Huang's downfall, impossible timestamps, and the town's 'ground stop.'",
+        "The pervasive hum: A low, guttural vibration from the bay and earth, causing structural cracks, electronic interference, and now physical sway and a resonant thrum.",
+        "Strange radio static: A chorus of fractured tones, whispers, and a 'digital maw' that has now consumed all communication.",
+        "7.76 nautical miles / the number seven: Recurring number, now linked to L. Huang's payment, impossible timestamps, and the '701' copper plate.",
+        "Flashlight: David's primary defense against the dark at night, now illuminating the cabin's horrors.",
+        "Lighthouse: Its failing light is crucial, its acquisition by Thorne linked to Huang's engineered collapse.",
+        "Iris's wooden toy bird: A recurring object connected to David's missing sister, linked to the child's toy found in ash at the Peterson cabin.",
+        "Old typewriter: David's own machine, which he suspects might be creating the pages, fueling his 'conduit' realization.",
+        "Waterproof notebook: Contains David's investigation notes, including impossible timestamps and the '701' detail.",
+        "Elara Thorne's diary: Tracks the dark's return, now linked to its specific communication patterns.",
+        "Peterson cabin details: Scorched earth, an untouched child's toy, ash, and internal phosphorescence, now David's immediate focus.",
+        "Stopped clocks (7:56:17): A new manifestation of the dark's influence, halting time across the town."
+      ],
+      "where_we_left_off": "David Vance experienced the town's 'ground stop' and escalating structural decay, discovering a manuscript page that revealed L. Huang's 'debt repaid in foundations' to Elias Thorne. Now, after finding a '701' copper plate and observing the Peterson cabin's eerie phosphorescence and splintered door, David has entered the cabin, ready to confront the truth about his sister Iris."
+    }
   }
 ]
